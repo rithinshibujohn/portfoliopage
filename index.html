@@ -208,23 +208,102 @@
             .about-text, .about-skills {
                 flex: 1;
             }
-        }
+        }/* Hamburger button visible on small screens */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 30px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  box-sizing: border-box;
+  z-index: 1001; /* so it stays on top */
+}
+
+/* Hamburger lines: dark blue color */
+.hamburger span {
+  width: 30px;
+  height: 4px;
+  background: #003366; /* dark blue */
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+/* Responsive - show hamburger, hide nav */
+@media (max-width: 768px) {
+  nav {
+    display: none; /* hide nav menu initially */
+    background: #f9f9f9; /* light background */
+    position: absolute;
+    top: 60px; /* adjust based on header height */
+    left: 0;
+    right: 0;
+    padding: 15px 0;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    z-index: 1000;
+  }
+  
+  nav.active {
+    display: block;
+  }
+
+  nav ul {
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  nav ul li {
+    margin: 12px 0;
+    text-align: center;
+  }
+
+  nav ul li a {
+    color: #003366; /* dark blue for links */
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 18px;
+  }
+
+  nav ul li a:hover {
+    color: #0059b3; /* lighter blue on hover */
+  }
+
+  .hamburger {
+    display: flex;
+  }
+}
+
+
     </style>
 </head>
 <body>
     <header>
-        <div class="container">
-            <div class="logo">Rithin Shibu John</div>
-            <nav>
-                <ul>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#experience">Experience</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+  <div class="container">
+    <div class="logo">Rithin Shibu John</div>
+    
+    <!-- Hamburger icon -->
+    <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
 
     <main>
         <section id="hero">
@@ -358,3 +437,14 @@
     </footer>
 </body>
 </html>
+<script>
+    const hamburger = document.querySelector('.hamburger');
+const nav = document.querySelector('nav');
+
+hamburger.addEventListener('click', () => {
+  const expanded = hamburger.getAttribute('aria-expanded') === 'true' || false;
+  hamburger.setAttribute('aria-expanded', !expanded);
+  nav.classList.toggle('active');
+});
+
+</script>
