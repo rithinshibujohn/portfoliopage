@@ -3,325 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rithin Shibu John | Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>Rithin Shibu John | Futuristic Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Chakra+Petch:wght@500;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #0a192f;
-            --secondary-color: #64ffda;
-            --text-color: #ccd6f6;
-            --background-color: #112240;
-            --card-bg: #1f4068;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Roboto', sans-serif;
-        }
-
-        body {
-            background: var(--primary-color);
-            color: var(--text-color);
-            line-height: 1.6;
-        }
-
-        a {
-            color: var(--secondary-color);
-            text-decoration: none;
-        }
-
-        header {
-            background: #020c1b;
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1100px;
-            margin: auto;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--secondary-color);
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 2rem;
-            justify-content: flex-end;
-        }
-
-        nav a:hover {
-            text-decoration: underline;
-        }
-
-        header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        #hero {
-            height: 90vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(to bottom right, #0f2027, #203a43, #2c5364);
-            text-align: center;
-        }
-
-        .hero-content h1 {
-            font-size: 3rem;
-            color: white;
-        }
-
-        .hero-content p {
-            font-size: 1.2rem;
-            margin: 1rem 0;
-        }
-
-        .hero-links a {
-            margin: 0 1rem;
-            background: var(--secondary-color);
-            color: #0a192f;
-            padding: 0.6rem 1.2rem;
-            border-radius: 30px;
-            transition: background 0.3s ease;
-        }
-
-        .hero-links a:hover {
-            background: white;
-        }
-
-        section {
-            padding: 3rem 0;
-        }
-
-        h2 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            border-bottom: 2px solid var(--secondary-color);
-            display: inline-block;
-        }
-
-        .about-content {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
-
-        .about-content img {
-            max-width: 180px;
-            border-radius: 50%;
-            margin-top: 1rem;
-        }
-
-        .about-skills ul {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .about-skills li::before {
-            content: '\f058';
-            font-family: 'Font Awesome 6 Free';
-            font-weight: 900;
-            color: var(--secondary-color);
-            margin-right: 0.5rem;
-        }
-
-        .timeline {
-            position: relative;
-            margin-left: 1rem;
-        }
-
-        .timeline-item {
-            margin: 2rem 0;
-        }
-
-        .timeline-dot {
-            height: 15px;
-            width: 15px;
-            background: var(--secondary-color);
-            border-radius: 50%;
-            position: absolute;
-            left: -8px;
-            top: 8px;
-        }
-
-        .timeline-content {
-            background: var(--card-bg);
-            padding: 1rem;
-            border-radius: 10px;
-            margin-left: 2rem;
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .project-card {
-            background: var(--card-bg);
-            padding: 1rem;
-            border-radius: 10px;
-            transition: transform 0.3s ease;
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .certifications-list .certification-item {
-            background: #1c2b3a;
-            padding: 0.8rem;
-            margin-bottom: 0.5rem;
-            border-left: 4px solid var(--secondary-color);
-            border-radius: 5px;
-        }
-
-        footer {
-            background: #020c1b;
-            color: #8892b0;
-            padding: 2rem 0;
-            text-align: center;
-        }
-
-        .contact-info a {
-            color: var(--secondary-color);
-        }
-
-        @media (min-width: 768px) {
-            .about-content {
-                flex-direction: row;
-                justify-content: space-between;
-            }
-            .about-text, .about-skills {
-                flex: 1;
-            }
-        }/* Hamburger button visible on small screens */
-.hamburger {
-  display: none;
-  flex-direction: column;
-  justify-content: space-around;
-  width: 30px;
-  height: 30px;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  box-sizing: border-box;
-  z-index: 1001; /* so it stays on top */
-}
-
-/* Hamburger lines: dark blue color */
-.hamburger span {
-  width: 30px;
-  height: 4px;
-  background: #003366; /* dark blue */
-  border-radius: 3px;
-  transition: all 0.3s ease;
-}
-
-/* Responsive - show hamburger, hide nav */
-@media (max-width: 768px) {
-  nav {
-    display: none; /* hide nav menu initially */
-    background: #f9f9f9; /* light background */
-    position: absolute;
-    top: 60px; /* adjust based on header height */
-    left: 0;
-    right: 0;
-    padding: 15px 0;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    z-index: 1000;
-  }
-  
-  nav.active {
-    display: block;
-  }
-
-  nav ul {
-    flex-direction: column;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-
-  nav ul li {
-    margin: 12px 0;
-    text-align: center;
-  }
-
-  nav ul li a {
-    color: #003366; /* dark blue for links */
-    font-weight: 600;
-    text-decoration: none;
-    font-size: 18px;
-  }
-
-  nav ul li a:hover {
-    color: #0059b3; /* lighter blue on hover */
-  }
-
-  .hamburger {
-    display: flex;
-  }
-}
-
-
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-  <div class="container">
-    <div class="logo">Rithin Shibu John</div>
-    
-    <!-- Hamburger icon -->
-    <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-    
-    <nav>
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
+    <!-- Animated Scanline Overlay -->
+    <div class="scanline"></div>
 
+    <header>
+        <div class="container">
+            <div class="logo">Rithin Shibu John</div>
+            <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+            <nav>
+                <ul>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#experience" class="nav-link">Experience</a></li>
+                    <li><a href="#projects" class="nav-link">Projects</a></li>
+                    <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
     <main>
         <section id="hero">
+            <div id="particles-js"></div>
             <div class="hero-content">
-                <h1>Rithin Shibu John</h1>
-                <p>Full Stack Developer</p>
+                <h1 data-text="Rithin Shibu John" class="glitch">Rithin Shibu John</h1>
+                <p>Full Stack Developer & Web Architect</p>
                 <div class="hero-links">
-                    <a href="https://github.com/rithinshibujohn" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-                    <a href="https://linkedin.com/in/rithinshibujohn" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                    <!-- IMPORTANT: Replace with your CV file path -->
+                    <a href="your-cv.pdf" download class="cta-button">
+                        <i class="fas fa-download"></i> Download CV
+                    </a>
+                    <a href="https://github.com/rithinshibujohn" target="_blank" class="cta-button">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
                 </div>
             </div>
         </section>
 
-        <section id="about" class="container">
+        <section id="about" class="container animated-section">
+            <h2><span class="highlight">01.</span> About Me</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <h2>About Me</h2>
-                    <center><img src="img/me.jpg" alt="Rithin Shibu John"></center>
                     <p>I am a passionate and results-oriented Full Stack Developer with a Master's in Computer Applications. My expertise lies in building scalable web applications and RESTful APIs using Python, Django, and SQL. I thrive in dynamic environments and am committed to delivering high-quality solutions.</p>
                 </div>
                 <div class="about-skills">
@@ -336,115 +68,139 @@
             </div>
         </section>
 
-        <section id="experience" class="container">
-            <h2>Work Experience</h2>
+        <section id="experience" class="container animated-section">
+            <h2><span class="highlight">02.</span> Work Experience</h2>
             <div class="timeline">
+                <!-- Experience Item 1 -->
                 <div class="timeline-item">
-                    <div class="timeline-dot"></div>
                     <div class="timeline-content">
-                        <h3>Python Full Stack Developer</h3>
-                        <p class="company">Davean Enterprises Pvt. Ltd | May 2024 - May 2025</p>
-                        <p>Developed dynamic web apps, RESTful APIs with Django, and integrated SAP B1, enhancing performance and reducing costs.</p>
+                        <!-- IMPORTANT: Replace with your company logo -->
+                        <img src="img/davean-logo.png" alt="Davean Enterprises Logo" class="company-logo">
+                        <div class="job-details">
+                            <h3>Python Full Stack Developer</h3>
+                            <p class="company">Davean Enterprises Pvt. Ltd | May 2024 - May 2025</p>
+                            <p>Developed dynamic web apps, RESTful APIs with Django, and integrated SAP B1, enhancing performance and reducing costs.</p>
+                        </div>
                     </div>
                 </div>
+                 <!-- Experience Item 2 -->
                 <div class="timeline-item">
-                    <div class="timeline-dot"></div>
                     <div class="timeline-content">
-                        <h3>Hardware & Networking Support</h3>
-                        <p class="company">Micrologic Communications | Nov 2023 - Apr 2024</p>
-                        <p>Provided technical support including PC assembly, OS setup, and network configuration.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3>Python Developer Intern</h3>
-                        <p class="company">Orion Club Innovations | Aug 2023 - Oct 2023</p>
-                        <p>Contributed to a Django-based management project and assisted in the development and deployment of web applications.</p>
+                        <!-- IMPORTANT: Replace with your company logo -->
+                        <img src="img/micrologic-logo.png" alt="Micrologic Logo" class="company-logo">
+                        <div class="job-details">
+                            <h3>Hardware & Networking Support</h3>
+                            <p class="company">Micrologic Communications | Nov 2023 - Apr 2024</p>
+                            <p>Provided technical support including PC assembly, OS setup, and network configuration.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="projects" class="container">
-    <h2>Portfolio</h2>
-    <div class="projects-grid">
+        <section id="projects" class="container animated-section">
+            <h2><span class="highlight">03.</span> Portfolio</h2>
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card" 
+                     data-modal-img="img/sapdashboard.png" 
+                     data-modal-title="SAP Integration System" 
+                     data-modal-desc="Developed a multitenant SAP ERP integration system featuring a responsive web app and custom middleware. This solution ensures secure, real-time data synchronization between the frontend application and the SAP B1 backend, streamlining business processes."
+                     data-modal-tech="Django, Python, REST API, SAP B1, PostgreSQL"
+                     data-modal-live="https://example.com/sap-integration"
+                     data-modal-repo="https://github.com/your-repo">
+                    <img src="img/sapdashboard.png" alt="SAP Integration Thumbnail" class="project-thumbnail">
+                    <div class="card-content">
+                        <h3>SAP Integration System</h3>
+                        <p>SAP ERP integration with a custom middleware.</p>
+                    </div>
+                </div>
 
-        <!-- Project 1 -->
-        <div class="project-card">
-            <h3>SAP Integration System</h3>
-            <a href="https://example.com/sap-integration" target="_blank">
-                <img src="img/sapdashboard.png" alt="SAP Integration Screenshot" width="200px" class="project-image">
-            </a>
-            <p>Developed a multitenant SAP ERP integration with a responsive web app and custom middleware for secure data handling.</p>
-            <a href="" target="_blank" class="project-link">View Live</a>
-        </div>
-
-        <!-- Project 2 -->
-        <div class="project-card">
-            <h3>E-commerce Website</h3>
-            <a href="https://greatkart-orpin.vercel.app/" target="_blank">
-                <img src="img/greatkart.png" alt="E-commerce Website Screenshot" width="230px" class="project-image">
-            </a>
-            <p>Built a full-featured e-commerce platform with user authentication, product listings, and PayPal integration using Django and PostgreSQL.</p>
-            <a href="https://greatkart-orpin.vercel.app/" target="_blank" class="project-link">View Live</a>
-        </div>
-
-        <!-- Project 2 -->
-        <div class="project-card">
-            <h3>Royal Xerox</h3>
-            <a href="https://royalxerox.in" target="_blank">
-                <img src="img/royalxerox.png" alt="E-commerce Website Screenshot" width="230px" class="project-image">
-            </a>
-            <p>Developed a professional website for a printing shop, focusing on responsive design and ease of use.</p>
-            <a href="https://royalxerox.in" target="_blank" class="project-link">View Live</a>
-        </div>
-        <!-- Project 2 -->
-        <div class="project-card">
-            <h3>E-commerce Website</h3>
-            <a href="https://wekart-phi.vercel.app/" target="_blank">
-                <img src="img/wekart.png" alt="E-commerce Website Screenshot" width="230px" class="project-image">
-            </a>
-            <p>Built a full-featured e-commerce platform with user authentication, product listings, and PayPal integration using Django and PostgreSQL.</p>
-            <a href="https://wekart-phi.vercel.app/" target="_blank" class="project-link">View Live</a>
-        </div>
-
-    </div>
-</section>
-
-
-        <section id="certifications" class="container">
-            <h2>Certifications</h2>
-            <div class="certifications-list">
-                <div class="certification-item">Python Basics Skill Test - HackerRank</div>
-                <div class="certification-item">Figma, HTML, CSS, JavaScript in Web Design - Udemy</div>
-                <div class="certification-item">DevOps Workshop - Allianz Technology</div>
+                <!-- Project 2 -->
+                <div class="project-card" 
+                     data-modal-img="img/greatkart.png" 
+                     data-modal-title="E-commerce Website (Greatkart)" 
+                     data-modal-desc="A complete e-commerce platform built from the ground up. Features include robust user authentication, dynamic product catalogs, shopping cart functionality, and secure payment processing via PayPal integration."
+                     data-modal-tech="Django, PostgreSQL, HTML/CSS, JavaScript"
+                     data-modal-live="https://greatkart-orpin.vercel.app/"
+                     data-modal-repo="https://github.com/your-repo">
+                    <img src="img/greatkart.png" alt="E-commerce Website Thumbnail" class="project-thumbnail">
+                    <div class="card-content">
+                        <h3>E-commerce Website</h3>
+                        <p>Full-featured platform with PayPal integration.</p>
+                    </div>
+                </div>
+                 <!-- Add more project cards here -->
             </div>
         </section>
+        
+        <section id="testimonials" class="animated-section">
+            <div class="container">
+                <h2><span class="highlight">04.</span> Testimonials</h2>
+                <div class="testimonial-slider-container">
+                    <div class="testimonial-track">
+                        <!-- Testimonial 1 -->
+                        <div class="testimonial-card">
+                            <p class="testimonial-text">"Rithin is a highly skilled developer who consistently delivered high-quality code. His problem-solving abilities and dedication were invaluable to our team."</p>
+                            <div class="testimonial-author">
+                                <img src="img/author1.jpg" alt="Author 1" class="author-img">
+                                <div>
+                                    <p class="author-name">Jane Doe</p>
+                                    <p class="author-title">Project Manager, Davean Ent.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Testimonial 2 -->
+                        <div class="testimonial-card">
+                           <p class="testimonial-text">"Working with Rithin was a pleasure. He has a deep understanding of backend systems and was crucial in the successful launch of our e-commerce platform."</p>
+                             <div class="testimonial-author">
+                                <img src="img/author2.jpg" alt="Author 2" class="author-img">
+                                <div>
+                                    <p class="author-name">John Smith</p>
+                                    <p class="author-title">Lead Engineer</p>
+                                </div>
+                            </div>
+                        </div>
+                         <!-- Add more testimonials here -->
+                    </div>
+                    <button class="slider-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
+                    <button class="slider-btn next-btn"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </section>
+
     </main>
 
-    <footer id="contact">
+    <footer id="contact" class="animated-section">
         <div class="container">
             <h2>Get In Touch</h2>
             <p>I'm currently seeking new opportunities. Feel free to reach out!</p>
             <div class="contact-info">
-                <p>Email: <a href="mailto:rithinshibujohn@gmail.com">rithinshibujohn@gmail.com</a></p>
-                <p>Phone: +971 52 350 9123</p>
-                <p>Location: Sharjah, UAE</p>
+                <p><i class="fas fa-envelope"></i> <a href="mailto:rithinshibujohn@gmail.com">rithinshibujohn@gmail.com</a></p>
+                <p><i class="fas fa-phone"></i> +971 52 350 9123</p>
+                <p><i class="fas fa-map-marker-alt"></i> Sharjah, UAE</p>
             </div>
-            <p>&copy; 2024 Rithin Shibu John. All rights reserved.</p>
+            <p>© 2024 Rithin Shibu John. All rights reserved.</p>
         </div>
     </footer>
+
+    <!-- Project Modal Structure -->
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">×</span>
+            <img id="modalImg" src="" alt="Project Image" class="modal-image">
+            <h2 id="modalTitle"></h2>
+            <p id="modalDesc"></p>
+            <h3>Tech Stack:</h3>
+            <p id="modalTech"></p>
+            <div class="modal-links">
+                <a id="modalLiveLink" href="#" target="_blank" class="cta-button">View Live</a>
+                <a id="modalRepoLink" href="#" target="_blank" class="cta-button">View Repo</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>
-<script>
-    const hamburger = document.querySelector('.hamburger');
-const nav = document.querySelector('nav');
-
-hamburger.addEventListener('click', () => {
-  const expanded = hamburger.getAttribute('aria-expanded') === 'true' || false;
-  hamburger.setAttribute('aria-expanded', !expanded);
-  nav.classList.toggle('active');
-});
-
-</script>
