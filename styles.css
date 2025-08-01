@@ -24,50 +24,12 @@ a { color: var(--accent-color); text-decoration: none; transition: all 0.3s ease
 a:hover { text-shadow: 0 0 8px var(--glow-color); }
 .container { width: 90%; max-width: 1100px; margin: auto; }
 
-/* --- HEADER AND NAVIGATION (CORRECTED) --- */
-header {
-    background: rgba(10, 10, 10, 0.8);
-    backdrop-filter: blur(10px);
-    padding: 1rem 0;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    border-bottom: 1px solid var(--accent-color);
-    animation: pulse-border 4s infinite;
-}
-header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap; /* CRITICAL FIX: Allows the menu to wrap to the next line */
-}
+/* Header and Navigation */
+header { background: rgba(10, 10, 10, 0.8); backdrop-filter: blur(10px); padding: 1rem 0; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--accent-color); animation: pulse-border 4s infinite; }
+header .container { display: flex; justify-content: space-between; align-items: center; position: relative; /* Context for dropdown */ }
 .logo { font-family: 'Chakra Petch', sans-serif; font-size: 1.8rem; color: var(--accent-color); text-shadow: 0 0 10px var(--glow-color); }
-nav ul {
-    display: flex;
-    list-style: none;
-    gap: 2rem;
-    padding: 0;
-    margin: 0;
-}
-.hamburger {
-    display: none;
-    z-index: 1002;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-}
-.hamburger span {
-    display: block;
-    width: 30px;
-    height: 3px;
-    background: var(--accent-color);
-    border-radius: 3px;
-    transition: all 0.3s ease;
-    margin: 5px 0;
-}
-/* --- END HEADER CORRECTION --- */
-
+nav ul { display: flex; list-style: none; gap: 2rem; }
+.hamburger { display: none; z-index: 1002; }
 
 /* Hero Section */
 #hero { position: relative; height: 90vh; display: flex; align-items: center; justify-content: center; text-align: center; }
@@ -139,35 +101,64 @@ h2 .highlight { color: var(--accent-color); }
 .modal-links { margin-top: 2rem; display: flex; gap: 1rem; }
 footer { padding: 3rem 0; text-align: center; border-top: 1px solid; border-image: linear-gradient(to right, var(--accent-color), var(--secondary-glow)) 1; }
 
-/* --- RESPONSIVE DESIGN (FINAL WORKING VERSION) --- */
+/* --- RESPONSIVE DESIGN (CORRECTED) --- */
 @media (max-width: 768px) {
     .hamburger {
-        display: block; /* Show the hamburger */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 30px;
+        height: 30px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+    }
+    .hamburger span {
+        width: 30px;
+        height: 3px;
+        background: var(--accent-color);
+        border-radius: 3px;
+        transition: all 0.3s ease;
     }
     .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
     .hamburger.active span:nth-child(2) { opacity: 0; }
     .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px); }
 
+    /*
+     * CORRECTED DROPDOWN MENU
+     * The UL is styled as the dropdown, positioned relative to the header.
+    */
     nav ul {
-        display: none; /* Hide nav links by default */
-        flex-direction: column;
-        width: 100%; /* Make the list take the full width */
-        text-align: center;
-        padding: 1rem 0;
+        display: none; /* Hidden by default */
+        position: absolute;
+        top: 100%; /* Position it right below the header's bottom edge */
+        left: 0;
+        right: 0;
         background: rgba(10, 10, 10, 0.95);
+        backdrop-filter: blur(10px);
+        flex-direction: column;
+        padding: 1rem 0;
+        margin: 0;
+        list-style: none;
         animation: dropdown-fade 0.3s ease-out;
     }
     nav.active ul {
-        display: flex; /* Show the list when nav is active */
+        display: flex; /* Show the list when nav has 'active' class */
     }
     nav ul li {
+        text-align: center;
         padding: 1rem 0;
+        width: 100%;
+    }
+    nav ul a {
+        font-size: 1.2rem;
     }
     @keyframes dropdown-fade {
         from { opacity: 0; transform: translateY(-10px); }
         to { opacity: 1; transform: translateY(0); }
     }
-    
+    /* --- END CORRECTED DROPDOWN STYLES --- */
+
     .scroll-down-arrow { font-size: 1.5rem; bottom: 2rem; }
     .slider-btn { top: auto; bottom: -60px; }
     .prev-btn { left: 30%; }
