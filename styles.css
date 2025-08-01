@@ -26,10 +26,11 @@ a:hover { text-shadow: 0 0 8px var(--glow-color); }
 
 /* Header and Navigation */
 header { background: rgba(10, 10, 10, 0.8); backdrop-filter: blur(10px); padding: 1rem 0; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--accent-color); animation: pulse-border 4s infinite; }
-header .container { display: flex; justify-content: space-between; align-items: center; position: relative; /* Context for dropdown */ }
+header .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
 .logo { font-family: 'Chakra Petch', sans-serif; font-size: 1.8rem; color: var(--accent-color); text-shadow: 0 0 10px var(--glow-color); }
-nav ul { display: flex; list-style: none; gap: 2rem; }
-.hamburger { display: none; z-index: 1002; }
+nav ul { display: flex; list-style: none; gap: 2rem; padding: 0; margin: 0; }
+.hamburger { display: none; z-index: 1002; background: transparent; border: none; cursor: pointer; padding: 0; }
+.hamburger span { display: block; width: 30px; height: 3px; background: var(--accent-color); border-radius: 3px; transition: all 0.3s ease; margin: 5px 0; }
 
 /* Hero Section */
 #hero { position: relative; height: 90vh; display: flex; align-items: center; justify-content: center; text-align: center; }
@@ -49,12 +50,37 @@ section { padding: 5rem 0; }
 h2 { font-family: 'Chakra Petch', sans-serif; font-size: clamp(2rem, 8vw, 2.8rem); text-align: center; margin-bottom: 3rem; color: white; text-shadow: 0 0 10px var(--glow-color); }
 h2 .highlight { color: var(--accent-color); }
 
-/* About Me Section */
+/* --- ABOUT ME SECTION (UPDATED FOR FLASHING TICK) --- */
 .about-content { display: flex; flex-wrap: wrap; align-items: center; gap: 3rem; }
 .about-image-container { flex: 1 1 200px; display: flex; justify-content: center; align-items: center; }
 .about-photo { width: 200px; height: 200px; object-fit: cover; border-radius: 50%; border: 3px solid var(--accent-color); box-shadow: 0 0 25px var(--glow-color); animation: pulse-photo-border 4s infinite ease-in-out; }
 @keyframes pulse-photo-border { 0% { box-shadow: 0 0 25px var(--glow-color); } 50% { box-shadow: 0 0 40px var(--secondary-glow), 0 0 15px var(--accent-color); } 100% { box-shadow: 0 0 25px var(--glow-color); } }
 .about-text { flex: 2 1 400px; }
+.about-list { list-style: none; padding-left: 0; }
+.about-list li { position: relative; padding-left: 2rem; margin-bottom: 1rem; font-size: 1.1rem; }
+.about-list li::before {
+    content: '\f00c'; /* Font Awesome "check" (tick) icon */
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    color: var(--accent-color);
+    position: absolute;
+    left: 0;
+    top: 5px;
+    animation: flash-bullet 2.5s infinite; /* Apply animation */
+}
+/* Keyframes for the flashing bullet animation */
+@keyframes flash-bullet {
+    0%, 100% {
+        transform: scale(1);
+        text-shadow: 0 0 8px var(--glow-color);
+    }
+    50% {
+        transform: scale(1.2);
+        text-shadow: 0 0 16px var(--glow-color);
+    }
+}
+/* --- END ABOUT ME SECTION --- */
+
 
 /* Skills Section */
 .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1.5rem; max-width: 900px; margin: auto; }
@@ -101,64 +127,16 @@ h2 .highlight { color: var(--accent-color); }
 .modal-links { margin-top: 2rem; display: flex; gap: 1rem; }
 footer { padding: 3rem 0; text-align: center; border-top: 1px solid; border-image: linear-gradient(to right, var(--accent-color), var(--secondary-glow)) 1; }
 
-/* --- RESPONSIVE DESIGN (CORRECTED) --- */
+/* Responsive Design */
 @media (max-width: 768px) {
-    .hamburger {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        width: 30px;
-        height: 30px;
-        background: transparent;
-        border: none;
-        cursor: pointer;
-    }
-    .hamburger span {
-        width: 30px;
-        height: 3px;
-        background: var(--accent-color);
-        border-radius: 3px;
-        transition: all 0.3s ease;
-    }
+    .hamburger { display: block; }
     .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
     .hamburger.active span:nth-child(2) { opacity: 0; }
     .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px); }
-
-    /*
-     * CORRECTED DROPDOWN MENU
-     * The UL is styled as the dropdown, positioned relative to the header.
-    */
-    nav ul {
-        display: none; /* Hidden by default */
-        position: absolute;
-        top: 100%; /* Position it right below the header's bottom edge */
-        left: 0;
-        right: 0;
-        background: rgba(10, 10, 10, 0.95);
-        backdrop-filter: blur(10px);
-        flex-direction: column;
-        padding: 1rem 0;
-        margin: 0;
-        list-style: none;
-        animation: dropdown-fade 0.3s ease-out;
-    }
-    nav.active ul {
-        display: flex; /* Show the list when nav has 'active' class */
-    }
-    nav ul li {
-        text-align: center;
-        padding: 1rem 0;
-        width: 100%;
-    }
-    nav ul a {
-        font-size: 1.2rem;
-    }
-    @keyframes dropdown-fade {
-        from { opacity: 0; transform: translateY(-10px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-    /* --- END CORRECTED DROPDOWN STYLES --- */
-
+    nav ul { display: none; flex-direction: column; width: 100%; text-align: center; padding: 1rem 0; background: rgba(10, 10, 10, 0.95); animation: dropdown-fade 0.3s ease-out; }
+    nav.active ul { display: flex; }
+    nav ul li { padding: 1rem 0; }
+    @keyframes dropdown-fade { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
     .scroll-down-arrow { font-size: 1.5rem; bottom: 2rem; }
     .slider-btn { top: auto; bottom: -60px; }
     .prev-btn { left: 30%; }
