@@ -50,7 +50,7 @@ section { padding: 5rem 0; }
 h2 { font-family: 'Chakra Petch', sans-serif; font-size: clamp(2rem, 8vw, 2.8rem); text-align: center; margin-bottom: 3rem; color: white; text-shadow: 0 0 10px var(--glow-color); }
 h2 .highlight { color: var(--accent-color); }
 
-/* --- ABOUT ME SECTION (UPDATED FOR FLASHING TICK) --- */
+/* About Me Section */
 .about-content { display: flex; flex-wrap: wrap; align-items: center; gap: 3rem; }
 .about-image-container { flex: 1 1 200px; display: flex; justify-content: center; align-items: center; }
 .about-photo { width: 200px; height: 200px; object-fit: cover; border-radius: 50%; border: 3px solid var(--accent-color); box-shadow: 0 0 25px var(--glow-color); animation: pulse-photo-border 4s infinite ease-in-out; }
@@ -58,29 +58,8 @@ h2 .highlight { color: var(--accent-color); }
 .about-text { flex: 2 1 400px; }
 .about-list { list-style: none; padding-left: 0; }
 .about-list li { position: relative; padding-left: 2rem; margin-bottom: 1rem; font-size: 1.1rem; }
-.about-list li::before {
-    content: '\f00c'; /* Font Awesome "check" (tick) icon */
-    font-family: 'Font Awesome 6 Free';
-    font-weight: 900;
-    color: var(--accent-color);
-    position: absolute;
-    left: 0;
-    top: 5px;
-    animation: flash-bullet 2.5s infinite; /* Apply animation */
-}
-/* Keyframes for the flashing bullet animation */
-@keyframes flash-bullet {
-    0%, 100% {
-        transform: scale(1);
-        text-shadow: 0 0 8px var(--glow-color);
-    }
-    50% {
-        transform: scale(1.2);
-        text-shadow: 0 0 16px var(--glow-color);
-    }
-}
-/* --- END ABOUT ME SECTION --- */
-
+.about-list li::before { content: '\f00c'; font-family: 'Font Awesome 6 Free'; font-weight: 900; color: var(--accent-color); position: absolute; left: 0; top: 5px; animation: flash-bullet 2.5s infinite; }
+@keyframes flash-bullet { 0%, 100% { transform: scale(1); text-shadow: 0 0 8px var(--glow-color); } 50% { transform: scale(1.2); text-shadow: 0 0 16px var(--glow-color); } }
 
 /* Skills Section */
 .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1.5rem; max-width: 900px; margin: auto; }
@@ -127,20 +106,41 @@ h2 .highlight { color: var(--accent-color); }
 .modal-links { margin-top: 2rem; display: flex; gap: 1rem; }
 footer { padding: 3rem 0; text-align: center; border-top: 1px solid; border-image: linear-gradient(to right, var(--accent-color), var(--secondary-glow)) 1; }
 
-/* Responsive Design */
+/* --- RESPONSIVE DESIGN (FINAL WORKING VERSION) --- */
 @media (max-width: 768px) {
     .hamburger { display: block; }
     .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
     .hamburger.active span:nth-child(2) { opacity: 0; }
     .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px); }
-    nav ul { display: none; flex-direction: column; width: 100%; text-align: center; padding: 1rem 0; background: rgba(10, 10, 10, 0.95); animation: dropdown-fade 0.3s ease-out; }
-    nav.active ul { display: flex; }
-    nav ul li { padding: 1rem 0; }
+
+    /* The <nav> element itself is part of the flexbox in the header */
+    nav {
+        /* Take the full width so the <ul> inside it can be centered */
+        width: 100%;
+        /* Hide the navigation links list until it's toggled */
+        display: none;
+    }
+    nav.active {
+        /* When toggled, make the nav container visible */
+        display: block;
+    }
+    nav ul {
+        /* Style the dropdown list */
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        background: rgba(10, 10, 10, 0.95);
+        animation: dropdown-fade 0.3s ease-out;
+        gap: 0; /* CRITICAL: Reset the desktop gap to 0 */
+    }
+    nav ul li {
+        width: 100%;
+        padding: 1rem 0;
+    }
     @keyframes dropdown-fade { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+    
     .scroll-down-arrow { font-size: 1.5rem; bottom: 2rem; }
-    .slider-btn { top: auto; bottom: -60px; }
-    .prev-btn { left: 30%; }
-    .next-btn { right: 30%; }
+    .slider-btn { display: none; }
     .timeline-content { flex-direction: column; align-items: center; text-align: center; }
     .about-content { flex-direction: column; }
     .about-image-container { order: -1; margin-bottom: 1rem; }
